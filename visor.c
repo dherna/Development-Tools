@@ -1,3 +1,12 @@
+/*
+
+visor.c
+
+Copyright (c), 2011
+
+
+
+*/
 #include <gtkimageview/gtkimageview.h>
 int
 main (int argc, char *argv[])
