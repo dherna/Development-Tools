@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: Diego-MSWL-WebCrawler
+Version: .0.1
+Summary:  Scrapper for The New Atlantis 
+Home-page: https://github.com/donaldyo 
+Author:  Diego Hernandez Ruiz 
+Author-email:  diego.herna@gmail.com
+License: GNU GPLv3 
+Download-URL: https://github.com/donaldyo/Development-Tools/tarball/master
+Description: This is a project of the subject Development Tools of Master In Juan Carlos I 
+Keywords: web crawler
+Platform: UNKNOWN

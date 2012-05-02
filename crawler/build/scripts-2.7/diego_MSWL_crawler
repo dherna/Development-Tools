@@ -1,0 +1,62 @@
+#!/usr/bin/python
+#
+#    Copyright (c) 2012 Diego Hernandez Ruiz. All rights reserved.
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# importar bibliotecas
+import sys
+import urllib2
+import argparse
+import os
+from BeautifulSoup import BeautifulSoup as Soup
+
+user_agent = """ Mozilla /5.0 ( X11; U; Linux x86_64 ; en -US) 
+		AppleWebKit /534.7 (KHTML , like Gecko ) 
+		Chrome/7.0.517.41 Safari /534.7"""
+
+# creamos la funcion
+def read_data (url, level, level_u, contador ):
+    print str(contador) + level*"> " + url
+    #print contador
+    if level < level_u:
+        level = level + 1
+        _opener = urllib2 . build_opener()
+        _opener.addheaders = [('User - agent' , user_agent ) ]
+        raw_code = _opener.open(thisurl).read()
+        soup_code = Soup(raw_code)
+        links = [ link['href'] for link in soup_code.findAll('a')
+        if link.has_key('href') ]
+        for link in links: 
+		contador=contador+1
+		read_data(link, level, level_u, contador)
+    return
+
+parser = argparse . ArgumentParser ( description = "Argumentos del crawler" )
+parser . add_argument ( 'url' , nargs =1 ,help = 'URL de la que desea leer los links')
+parser . add_argument ( '-n' ,'--number-of-levels' , type = int , default =1 , help = 'Niveles que el crawler debe leer')
+
+argumentos = parser . parse_args()
+thisurl = argumentos.url.pop()
+level_u = argumentos.number_of_levels
+level = 1
+contador = 1
+print "analizando ..."
+read_data (thisurl, level, level_u, contador)
+#print "hay un total de "
+#print contador
+#print ('Valor de contador: ' + repr (contador))
+
+
+

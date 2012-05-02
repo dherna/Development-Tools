@@ -1,0 +1,8 @@
+diego_MSWL_crawler
+setup.py
+Diego_MSWL_WebCrawler.egg-info/PKG-INFO
+Diego_MSWL_WebCrawler.egg-info/SOURCES.txt
+Diego_MSWL_WebCrawler.egg-info/dependency_links.txt
+Diego_MSWL_WebCrawler.egg-info/requires.txt
+Diego_MSWL_WebCrawler.egg-info/top_level.txt
+diego_crawler/__init__.py
